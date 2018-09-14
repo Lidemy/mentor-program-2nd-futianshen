@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-  - "node"
-cache: yarn
-before_script: 
-  - wget $TESTCASE_URL
-notifications:
-  email: false
