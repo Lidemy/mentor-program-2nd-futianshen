@@ -11,7 +11,7 @@ function isPrime(n) {
   	if (n%counter===0) newArr.push(counter) 
   	counter++
   }
-  if(newArr.length===2)return true
+  if (newArr.length===2) return true
   else return false
 }
 

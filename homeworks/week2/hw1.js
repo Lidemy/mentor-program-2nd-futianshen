@@ -15,6 +15,7 @@ function stars(n) {
 }
 
 module.exports = stars
+
 /* 解題思路
 1 跑迴圈將星星加入字串
 2 將跑好的字串加入陣列
