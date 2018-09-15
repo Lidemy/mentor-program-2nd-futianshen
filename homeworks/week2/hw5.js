@@ -8,7 +8,8 @@ function add(a, b) {
 	var num1i=a.length-1
 	var num2i=b.length-1
 	var newStr =""
-	var sum = up = 0
+	var sum = 0 
+	var up = 0 // 不能這樣寫？ var sum = up = 0
 	if (num1i>=num2i) { // 用於兩個數字不同位數，判斷 a 和 b 那一個位數大，要做最大位數數字的次數 
 		var counter = num1i
 	} else {
