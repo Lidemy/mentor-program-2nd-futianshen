@@ -23,7 +23,7 @@ function add(a, b) {
 		} else if (num2i<0) {
 			sum = up + Number(a[num1i])
 		} 
-		if (sum>10) { //進位
+		if (sum>9) { //進位
 			sum = sum % 10
 			up = 1
 		} else {
