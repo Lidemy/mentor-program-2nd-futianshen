@@ -16,6 +16,9 @@ function reverse(str) {
 	console.log(newStr)
 }
 
+
+
+
 /*
 1.計算有幾個字母
 2.從最後一個開始印出來

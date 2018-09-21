@@ -1,9 +1,72 @@
-//console.log(isPrime(2))
-//console.log(isPrime(3))
-//console.log(isPrime(10))
-//console.log(isPrime(37))
-//console.log(isPrime(38))
+//用陣列做做看
+//用物件做做看
 
+//規律 {} 區塊用於多行程式碼
+console.log(isPrime(2))
+console.log(isPrime(3))
+console.log(isPrime(10))
+console.log(isPrime(37))
+console.log(isPrime(38))
+//質數因數只有兩個
+//質數在數學上的定義 小於等於開根號
+// 20180917 Live Broacast
+function isPrime(n) {
+  if (n === 1) return false
+  const factor = returnFactor(n)
+  return factor.length === 2 //簡化 if else 用於是非對立二元論 灰度認知 黑白決策
+}
+//
+function isPrime(n) {
+  if (n === 1) return false
+  const factor = returnFactor(n)
+  if (factor.length === 2) {
+    return true
+  } else {
+    return false
+  }
+}
+//
+function isPrime(n) {
+  if (n === 1) return false
+  for (var i=2, i<n; i++) {
+    if (n%1 === 0) {
+      return false
+    }
+  }
+  return true  
+}
+
+
+function returnFactor(n) { // use wk1 hw1 repair
+  const result = []  
+  for (var i=1; i<=n; i++) {
+      if (n % i ===0) {
+        result.push(i)
+      }
+    }
+    return result
+}
+
+module.exports = isPrime
+
+/* 20180918用字串做 倒著做
+function isPrime(n) {
+  for (let i=1; i<=n; i++)
+}
+*/
+
+/*20180917用字串做 正著做
+function isPrime(n) {
+  const str = n+'1'
+  let compareStr =''
+  for (let i=n; 1<=i; i--) {
+    if (n%i===0) compareStr += i
+  }
+  return str === compareStr
+}
+*/
+
+/*20180915
 function isPrime(n) {
   
   var newArr =[]
@@ -16,7 +79,10 @@ function isPrime(n) {
   else return false
 }
 
-module.exports = isPrime
+
+
+*/
+
 
  /* 解題思路
 質數有什麼「獨有」的特徵？用特徵作為判斷的標準

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=2">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week3hw1</title>
+
+    <style>
+        h1,h2,body {
+            margin: 0;
+        }
+        .intro,.content,.footer {
+            padding: 0 20px;
+        }
+        /* header */
+        .header {
+            position: fixed;
+            display: flex;
+            background-color: black;
+            width: 100%;
+        }
+        #header__logo {
+            text-transform: capitalize;
+            padding-left: 10px;
+            line-height: 50px;
+            font-size: 20px;
+            color: white;
+        }
+        .header__list {
+            display: flex;
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .header__button {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: grey;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .header__button:hover {
+            color:ghostwhite;
+        }
+        /* intro */
+        .intro {
+            background-color:gainsboro;
+        }
+        .intro__title {
+            font-weight: normal;
+            font-size: 72px;
+        }
+        .intro__button--blue {
+            display: inline-block;
+            background-color:dodgerblue;
+            border-radius: 5px;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: ghostwhite;
+            transition: 0.3s;
+        }
+        .intro__button--blue:hover {
+            background-color:deepskyblue;
+        }
+        /* content */
+        .content__title {
+            text-transform: capitalize;
+            font-weight: normal;
+            font-size: 32px;
+        }
+        .content__article {
+            padding-bottom: 30px
+        }
+        .content__button--grey {
+            background-color:dimgrey;
+            border-radius: 5px;
+            padding: 12px 10px;
+            text-decoration: none;
+            color: ghostwhite;
+            transition: 0.3s;
+        }
+        .content__button--grey:hover {
+            background-color:gray ;
+        }
+        /* footer */
+        
+        @media (min-width: 400px) and (max-width: 780px) {
+            .intro__container {
+                margin: 0 auto;
+                padding: 90px 0 40px;
+                width: 95%;
+            }
+            .content__container {
+                margin: 0 auto;
+                padding: 40px 0;
+                width: 95%;
+            }
+            .footer__container {
+                border-top: 1px solid rgba(0,0,0,0.1);
+                margin: 0 auto;
+                padding: 20px 0;
+                width: 95%;
+            }
+        }
+      
+        @media (min-width: 781px) and (max-width: 1920px) {
+            .intro__container {
+                margin: 0px auto;
+                padding: 90px 0 40px;
+                max-width: 960px; 
+            }
+            .content__container {
+                display: flex;
+                margin: 0 auto;
+                padding: 40px 0;
+                max-width: 960px;
+            }
+            .footer__container {
+                border-top: 1px solid rgba(0,0,0,0.1);
+                margin: 0 auto;
+                padding: 20px 0;
+                max-width: 960px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div id="header__logo">navbar</div>
+        <nav role="header__nav">
+            <ul class='header__list'>
+                <li><a href="#" class="header__button">home</a></li>
+                <li><a href="#" class="header__button">link</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="intro">
+            <div class="intro__container">
+
+                <div class="intro__welcome">
+                    <h1 class="intro__title">Hello, world!</h1>
+                    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                </div>
+                <a href="#" class="intro__button--blue">Learn more >></a>
+
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content__container">
+
+                <article class="content__article">
+                    <h2 class="content__title">heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <a href="#" class="content__button--grey">View details >></a>
+                </article>
+                <article class="content__article">
+                    <h2 class="content__title">heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <a href="#" class="content__button--grey">View details >></a>
+                </article>
+                <article class="content__article">
+                    <h2 class="content__title">heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <a href="#" class="content__button--grey">View details >></a>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+       <div class="footer__container">
+            <div class="footer__copyright">&#x24B8 futianshen 20180919</div>
+       </div>
+    </footer>
+</body>
+</html>
+
