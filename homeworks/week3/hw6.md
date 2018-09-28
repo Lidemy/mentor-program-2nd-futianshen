@@ -19,5 +19,5 @@
 ## 請問 position: static, relative, absolute 跟 fixed 的差別是什麼？
 - static 如文件上的文字一般自然流動。
 - relative 相對於自己現在的位置做微調。
-- absolute 相對於自己有設定 position:relative 的祖先，做絕對定位。
+- absolute 相對於自己不設為 position:static 的祖先，做絕對定位。
 - fixed 固定在畫面上特定位置保持不變。
