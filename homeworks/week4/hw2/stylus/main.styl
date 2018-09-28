@@ -1,0 +1,112 @@
+noticeColor = rgb(216, 66, 56);
+
+body 
+    background-color rgb(248, 237, 230)
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif
+
+h1,h2
+    font-weight normal
+
+.banner
+    width 100%
+    height 300px
+    background-image url('../img/04_thanksgiving_leaves.jpg') /* 路徑是從 css 檔案位置開始計算 */
+
+.container
+    margin 0 auto
+
+input,textarea
+    border 0 solid #000
+    border-bottom 1px solid #ddd
+    transition 0.3s
+    &:focus
+        border-bottom 2px solid noticeColor
+        outline-style: none;
+    &::-webkit-input-placeholder
+        color black
+        opacity: 0.4
+
+
+.sheet
+    position relative
+    bottom 100px
+    box-shadow 0 1px 10px 0 rgba(0,0,0,0.37)
+    box-sizing border-box
+    background-color white
+    border-top 10px solid orange
+    padding 10px 15px 50px
+    width: 650px
+    .block
+        margin-top 3px
+        padding 15px
+        &:last-child
+            padding-top: 0
+        h2
+            font-size 20px
+        p
+            font-size 14px
+            margin 0
+        .important,.unimportant
+            margin 15px 0
+            p
+        label
+            display block
+            margin-top 10px
+        input[type=submit]
+            margin 15px 0
+            border 0
+            border-radius 3px
+            padding 10px 30px
+            background-color rgb(57, 122, 242)
+            color white
+
+        .under_button
+            margin 15px 0 0
+            font-size 12px
+            color black
+            opacity 0.5
+
+    &__info
+        padding 10px
+        p.notice
+            color noticeColor
+            font-size 13px
+            &::before
+                font-size 14px
+                content: "*"
+    &__main
+        h2
+            margin-top 10px
+            margin-bottom 0
+            &.notice
+                &::after
+                    font-size 24px
+                    color noticeColor
+                    content: " *"
+        
+.footer
+    text-align center
+    margin -50px 0 30px
+    &__copyright
+        display flex
+        justify-content: center
+        line-height 18px
+        color: #333
+        font-size 12px
+        opacity .8
+
+        a
+            text-decoration: none
+            color: #333
+
+    &__content
+        margin 0
+        line-height 18px
+
+    #logo 
+        margin-top 20px
+        font-size 22px
+        color black
+        opacity .26
+
+            
