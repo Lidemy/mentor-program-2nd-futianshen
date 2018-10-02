@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
+    <style>
+        .block {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">dfdfdfdf</div>
+</body>
+<script>
+        function q(slct) { // function 可以看成是一個傳參數進去的物件?
+            return {
+                hide: function() { 
+                    document.querySelector(slct).style.display = 'none'
+                },
+                show: function() {
+                    document.querySelector(slct).style.display = 'block'
+                }
+            }
+            
+
+        }
+        let element = q('.block')
+        alert('hide')
+        element.hide()
+        alert('show')
+        element.show()
+
+</script>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FutainShen Week4 hw1 ios12 計算機</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() { //監聽頁面
+            const monitor = document.querySelector('.calculator__monitor').innerText
+            let background = ''
+            let memory1 = ''
+            let memory2 = ''
+            let operator = ''
+            let Answer = 0
+            document.querySelector('.calculator__monitor').innerText = '0'
+            //multiple
+            document.querySelector('#ac').addEventListener('click', () => {
+                document.querySelector('.calculator__monitor').innerText = '0'
+                background = ''
+                memory1 =''
+            })
+            document.querySelector('#negative').addEventListener('click', () => {
+                document.querySelector('.calculator__monitor').innerText *= -1
+                
+                
+            })
+            document.querySelector('#percent').addEventListener('click', () => {
+                document.querySelector('.calculator__monitor').innerText *= 0.01
+        
+            })
+
+            //number    
+            let number = document.querySelectorAll(".calculator__keyboard--number > input")
+            //0
+            number[0].addEventListener('click', () => {
+                if (background!=='') { //bug 最高位數不能是0 
+                    background += 0 
+                    document.querySelector('.calculator__monitor').innerText = background
+                }
+            })    
+            
+            //1-9            
+            let max = number.length
+            for (let i=2; i<max; i++){
+                number[i].addEventListener('click', () => {
+                    background += i-1
+                    document.querySelector('.calculator__monitor').innerText = background
+                })
+            }
+            //dot 一組數字只能有一個小數點
+            number[1].addEventListener('click', () => {
+                let check = document.querySelector('.calculator__monitor').innerText // bug 這樣小數不能減小數
+                let n = check.length-1
+                let counter = 0
+                console.log(check)
+                console.log(n)
+                for (n; 0<=n; n--) { 
+                    if (check[n]==='.') {
+                    counter++
+                    break
+                    } 
+                }
+                if (counter===0) {
+                    background += '.'
+                    document.querySelector('.calculator__monitor').innerText = background
+                } 
+            })  
+                    
+            //operator
+            document.querySelector('#plus').addEventListener('click', () => {
+                memory1 = document.querySelector('.calculator__monitor').innerText
+                operator ='+'
+                background = ''
+            })
+            document.querySelector('#minus').addEventListener('click', () => {
+                memory1 = document.querySelector('.calculator__monitor').innerText
+                operator ='-'
+                background = ''
+            })
+            document.querySelector('#multiply').addEventListener('click', () => {
+                memory1 = document.querySelector('.calculator__monitor').innerText
+                operator ='*'
+                background = ''
+            })
+            document.querySelector('#divided').addEventListener('click', () => {
+                memory1 = document.querySelector('.calculator__monitor').innerText
+                operator ='/'
+                background = ''
+            })
+            document.querySelector('#equal').addEventListener('click', () => { // number 和 parseInt 有什麼不同?自己解出來
+                let memory2 = document.querySelector('.calculator__monitor').innerText
+                if (operator==='') Answer = document.querySelector('.calculator__monitor').innerText
+                if (operator==="+") Answer = Number(memory1) + Number(memory2)
+                if (operator==="-") Answer = Number(memory1) - Number(memory2)
+                if (operator==="*") Answer = Number(memory1) * Number(memory2)
+                if (operator==="/") Answer = Number(memory1) / Number(memory2)
+                document.querySelector('.calculator__monitor').innerText = Answer 
+                background = ''
+            })
+    })
+    
+    </script>
+    <style>
+        input {
+            outline-style:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator__monitor"></div>
+        <div class="calculator__keyboard">
+            <div class="calculator__keyboard--left">
+
+                <form class="calculator__keyboard--multiple">
+                    <input type="button" value="AC" id="ac">
+                    <input type="button" value="±" id="negative">
+                    <input type="button" value="%" id="percent">
+                </form>
+                <form class="calculator__keyboard--number">
+                    <input type="button" value="0"  class="big">
+                    <input type="button" value=".">
+                    <input type="button" value="1">
+                    <input type="button" value="2">
+                    <input type="button" value="3">
+                    <input type="button" value="4">
+                    <input type="button" value="5">
+                    <input type="button" value="6">
+                    <input type="button" value="7">
+                    <input type="button" value="8">
+                    <input type="button" value="9">
+                </form>
+            </div>
+            <form class="calculator__keyboard--operator">
+                <input type="button" value="=" id="equal">
+                <input type="button" value="+" id="plus">
+                <input type="button" value="-" id="minus">
+                <input type="button" value="*" id="multiply">
+                <input type="button" value="÷" id="divided">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
