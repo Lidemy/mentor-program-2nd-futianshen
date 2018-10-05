@@ -54,6 +54,10 @@ HTTP method |`GET` |`POST`
 > Resource Representational State Transfer<br>
 > 一種建立在 HTTP 協定下的架構設計風格(不是標準),用於實踐 CRUD 
 
+RESTful 是在一種讓網址具有識別意義的設計風格
+
+重點在怎麼設計網址，讓 api 的動作符合一般人看到網址能預期去操作時會發生的事情
+
 使用的 HTTP 協定   | 功能
 ---|---
 `POST` | Create

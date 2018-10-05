@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <title>Log In</title>
+</head>
+<body>
+    <header id="header">
+        <div id="header__logo">
+            <h1 id="header__logo--english">Record</h1>
+            <h1 id="header__logo--chinese">記錄</h1>
+        </div>
+    </header>
+    <main>
+        <div class="box">
+            <form action="login.php" method='POST'>
+                <label>username <input name="username" type="text" required="required"></label>
+                <label>password <input name="password" type="password" required="required"></label>
+                <div class="box__button">
+                    <a href="signup.php" class="button">註冊</a>
+                    <input type="submit" class='button' value="登入">
+                </div>
+            </form>
+            
+        </div>
+    </main>
+    <footer id="footer" class="absolute">
+        <div id="footer__copy">Copyright &copy; 2018 Futian Shen</div>
+    </footer>
+</body>
+</html>
+
+
+<!-- 
+html,php 怎麼混著寫?
+沒有 PHP 的地方默認是 HTML
+
+如果改 .php 附檔名為 .html 完全沒有影響?
+經過測試如果要跑 PHP 的網頁附檔名 一定要是 .php
+
+
+怎麼做到一進到頁面直接 focus 輸入框? 
+
+表單的用法不熟 
+input 的運行機制是什麼? 將輸入資料傳到name 參數 password?
+
+JavaScript 和 PHP 語法比較表
+-->
