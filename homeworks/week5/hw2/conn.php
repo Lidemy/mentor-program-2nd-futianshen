@@ -3,11 +3,13 @@
 $db_hostname = "localhost"; 
 $db_username = "root";
 $db_password = ""; 
-$db_name = "mentor_program_2nd_db"; // database name
+$db_name = "mentor_program_db"; // database name
 
 $conn = new mysqli($db_hostname, $db_username, $db_password, $db_name); // 建立一個新物件 mysqli
-/* 怎麼測試有沒有鏈接成功? */
-if ($conn->connect_error) { //connect_error 是內建函式?
-    die("連接失敗: " . $conn->connect_error); // die 什麼意思
+$conn->query("SET NAMES 'UTF8'"); // 設定資料庫編碼
+$conn->query("SET time_zone = '+08:00'"); // 設定資料庫時區
+
+if ($conn->connect_error) { //connect_error 是內建函式 回傳錯誤訊息
+    die("連接失敗: " . $conn->connect_error); // die 停止執行 PHP 程式
 }
 ?>

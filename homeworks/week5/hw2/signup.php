@@ -17,24 +17,25 @@
         </div>
     </header>
     <main>
-    <?php
-        require_once ('conn.php');
-        if (isset($_POST['username'])) {
-        $username =$_POST['username'];
-        $nickname =$_POST['nickname'];
-        $password =$_POST['password'];
-        $sql = "INSERT INTO tian_users VALUES (NULL, '$username', '$password', '$nickname')"; // 如果是字串要用''包住 數字的話就可以不用
-        $conn->query($sql) or die('error1');
-        header('Location: index.html');
-        }
+        
+<?php
+require_once ('conn.php');
+if (isset($_POST['username'])) {
+$username =$_POST['username'];
+$nickname =$_POST['nickname'];
+$password =$_POST['password'];
+$sql = "INSERT INTO tian_users VALUES (NULL, '$username', '$password', '$nickname')"; // 如果是字串要用''包住 數字的話就可以不用
+$conn->query($sql) or die('error1');
+header('Location: index.html');
+}
 
-        ?>
+?>
         <div class="box">    
             <form action="signup.php" method="POST">
                 <label>username: <input type="text" name="username" required="required"></label>
                 <label>nickname: <input type="text" name="nickname"  required="required"></label>
                 <label>password: <input type="password" name="password" required="required"></label>
-                <!-- 驗證密碼功能-->
+                <!-- 待補功能:輸入兩次密碼驗證密碼是否相同 DOM-->
                 <div class="box__button">
                     <input type="submit" value="註冊" class="button">
                 </div>
