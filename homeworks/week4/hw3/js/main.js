@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function (){
             request.open('GET', 'https://api.twitch.tv/kraken/streams/?game=League%20of%20Legends' ,true); //打開資源 true 非同步 , false 同步
             request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json'); // 怎麼知道要用 setRequestHeader?
             request.setRequestHeader('Client-ID', 'bg95w14qdbr4q8kr8x41fc392ximf4'); 
+            console.log(request)
                 request.onload = () => { // callback function
                     let stream = document.querySelector('.stream')
                     let response = JSON.parse(request.response) //將 json 格式處理成 JS 物件
