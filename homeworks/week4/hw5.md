@@ -41,7 +41,7 @@ HTTP method   | 功能
 `OPTIONS` | 查詢 server 支援哪些 HTTP method
 
 ---
-4. `GET` 跟 `POST` 有哪些區別，可以試著舉幾個例子嗎？<!-- 表格比較 -->
+4. `GET` 跟 `POST` 有哪些區別，可以試著舉幾個例子嗎？<!-- 表格比較 沒有舉例 -->
 ---
 HTTP method |`GET` |`POST`  
 ---|---|---
