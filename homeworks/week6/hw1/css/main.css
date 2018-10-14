@@ -126,9 +126,18 @@ a {
   justify-content: space-between;
 }
 .post__content {
+  background: #fafafa;
   border-radius: 5px;
   padding: 10px;
-  background: #fafafa;
+  display: flex;
+  justify-content: space-between;
+}
+.post__content--modify {
+  display: flex;
+}
+.post__content--modify input {
+  margin-top: 20px;
+  margin-left: 5px;
 }
 .comment__info {
   display: flex;
@@ -136,7 +145,16 @@ a {
   justify-content: space-between;
 }
 .comment__content {
+  display: flex;
+  justify-content: space-between;
   margin-top: 10px;
+}
+.comment__content--modify {
+  display: flex;
+}
+.comment__content--modify input {
+  margin-top: 20px;
+  margin-left: 5px;
 }
 .float {
   border-radius: 6px;
@@ -206,7 +224,7 @@ a {
   }
   .container {
     max-width: 1024px;
-    margin 0 auto
+    margin: 0 auto;
   }
   .box {
     margin: 250px auto 0;

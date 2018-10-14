@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () { /* Content Loaded 要大寫 */
-    document.querySelector('form').addEventListener('submit' , e => {
+    document.querySelector('form').addEventListener('submit' , e => { /* 為什麼需要使用 e */
         let checker = 0
         /* 取得文字題答案 */
         let ipt = document.querySelectorAll('.important') // array

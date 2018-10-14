@@ -117,9 +117,19 @@ a
         flex-direction: row
         justify-content space-between
     &__content
+        background  #FAFAFA
         border-radius 5px
         padding 10px
-        background  #FAFAFA
+        
+        display: flex;
+        justify-content space-between
+
+        &--modify
+            display: flex;
+            
+            input
+                margin-top 20px
+                margin-left: 5px
 
 .comment
     &__info
@@ -127,7 +137,16 @@ a
         flex-direction row
         justify-content space-between
     &__content
+        display: flex;
+        justify-content space-between
         margin-top: 10px
+
+        &--modify
+            display: flex;
+            input
+                margin-top 20px
+                margin-left: 5px
+        
 
 .float
     border-radius 6px
