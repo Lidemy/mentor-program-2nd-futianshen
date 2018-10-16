@@ -7,89 +7,94 @@
     <title>FutainShen Week4 hw1 ios12 計算機</title>
     <link rel="stylesheet" href="css/main.css">
     <script>
+        /* 還可以怎麼練習？
+            用 物件導向 寫一次
+            用 jQuery 寫一次
+            連加、減、乘、除
+            大數加、減、乘、除
+         */
         document.addEventListener('DOMContentLoaded', function() { //監聽頁面
-            const monitor = document.querySelector('.calculator__monitor').innerText
+            // default
+            const monitor = document.querySelector('.calculator__monitor').innerText = '0'
             let background = ''
+
             let memory1 = ''
             let memory2 = ''
             let operator = ''
             let Answer = 0
-            document.querySelector('.calculator__monitor').innerText = '0'
+           
             //multiple
             document.querySelector('#ac').addEventListener('click', () => {
-                document.querySelector('.calculator__monitor').innerText = '0'
+                document.querySelector('.calculator__monitor').innerText = '0' //螢幕顯示數字
                 background = ''
                 memory1 =''
             })
             document.querySelector('#negative').addEventListener('click', () => {
-                document.querySelector('.calculator__monitor').innerText *= -1
-                
-                
+                document.querySelector('.calculator__monitor').innerText *= -1 //螢幕顯示數字
             })
             document.querySelector('#percent').addEventListener('click', () => {
-                document.querySelector('.calculator__monitor').innerText *= 0.01
-        
+                document.querySelector('.calculator__monitor').innerText *= 0.01 //螢幕顯示數字
             })
 
             //number    
             let number = document.querySelectorAll(".calculator__keyboard--number > input")
             //0
             number[0].addEventListener('click', () => {
-                if (background!=='') { //bug 最高位數不能是0 
+                if (background!=='') { // 最高位數不能是0 
                     background += 0 
                     document.querySelector('.calculator__monitor').innerText = background
                 }
             })    
             
-            //1-9            
+            //1-9 重複的動作用迴圈完成            
             let max = number.length
             for (let i=2; i<max; i++){
                 number[i].addEventListener('click', () => {
-                    background += i-1
+                    background += i-1 // 現在背景處理之後才顯示在螢幕上
                     document.querySelector('.calculator__monitor').innerText = background
                 })
             }
-            //dot 一組數字只能有一個小數點
+            //dot 
             number[1].addEventListener('click', () => {
-                let check = document.querySelector('.calculator__monitor').innerText // bug 這樣小數不能減小數
+                // 一組數字只能有一個小數點
+                let check = document.querySelector('.calculator__monitor').innerText 
                 let n = check.length-1
                 let counter = 0
-                console.log(check)
-                console.log(n)
-                for (n; 0<=n; n--) { 
+                for (n; 0<=n; n--) { //檢查前面有沒有小數點
                     if (check[n]==='.') {
-                    counter++
-                    break
+                        counter += 1
+                        break
                     } 
                 }
-                if (counter===0) {
+                if (counter ===0 ) {
                     background += '.'
-                    document.querySelector('.calculator__monitor').innerText = background
-                } 
+                    console.log(background)
+                    document.querySelector('.calculator__monitor').innerText = background 
+                }
             })  
                     
             //operator
             document.querySelector('#plus').addEventListener('click', () => {
-                memory1 = document.querySelector('.calculator__monitor').innerText
+                memory1 = document.querySelector('.calculator__monitor').innerText // 將螢幕上的數字存到記憶體1
                 operator ='+'
-                background = ''
+                background = '' // 清空 background 不然再按數字會累計在螢幕上
             })
             document.querySelector('#minus').addEventListener('click', () => {
                 memory1 = document.querySelector('.calculator__monitor').innerText
                 operator ='-'
-                background = ''
+                background = '' // 清空 background 不然再按數字會累計在螢幕上
             })
             document.querySelector('#multiply').addEventListener('click', () => {
                 memory1 = document.querySelector('.calculator__monitor').innerText
                 operator ='*'
-                background = ''
+                background = '' // 清空 background 不然再按數字會累計在螢幕上
             })
             document.querySelector('#divided').addEventListener('click', () => {
                 memory1 = document.querySelector('.calculator__monitor').innerText
                 operator ='/'
-                background = ''
+                background = '' // 清空 background 不然再按數字會累計在螢幕上
             })
-            document.querySelector('#equal').addEventListener('click', () => { // number 和 parseInt 有什麼不同?自己解出來
+            document.querySelector('#equal').addEventListener('click', () => { 
                 let memory2 = document.querySelector('.calculator__monitor').innerText
                 if (operator==='') Answer = document.querySelector('.calculator__monitor').innerText
                 if (operator==="+") Answer = Number(memory1) + Number(memory2)
@@ -97,14 +102,14 @@
                 if (operator==="*") Answer = Number(memory1) * Number(memory2)
                 if (operator==="/") Answer = Number(memory1) / Number(memory2)
                 document.querySelector('.calculator__monitor').innerText = Answer 
-                background = ''
+                background = '' // 清空 background 不然再按數字會累計在螢幕上
             })
     })
     
     </script>
     <style>
         input {
-            outline-style:none;
+            outline-style: none;
         }
     </style>
 </head>

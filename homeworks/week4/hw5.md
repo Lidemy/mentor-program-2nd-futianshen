@@ -41,7 +41,7 @@ HTTP method   | 功能
 `OPTIONS` | 查詢 server 支援哪些 HTTP method
 
 ---
-4. `GET` 跟 `POST` 有哪些區別，可以試著舉幾個例子嗎？<!-- 表格比較 -->
+4. `GET` 跟 `POST` 有哪些區別，可以試著舉幾個例子嗎？<!-- 表格比較 沒有舉例 -->
 ---
 HTTP method |`GET` |`POST`  
 ---|---|---
@@ -53,6 +53,10 @@ HTTP method |`GET` |`POST`
 ---
 > Resource Representational State Transfer<br>
 > 一種建立在 HTTP 協定下的架構設計風格(不是標準),用於實踐 CRUD 
+
+RESTful 是在一種讓網址具有識別意義的設計風格
+
+重點在怎麼設計網址，讓 api 的動作符合一般人看到網址能預期去操作時會發生的事情
 
 使用的 HTTP 協定   | 功能
 ---|---
