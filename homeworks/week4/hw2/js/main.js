@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () { /* Content Loaded 要大寫 */
-    document.querySelector('form').addEventListener('submit' , e => { /* 為什麼需要使用 e */
+    document.querySelector('form').addEventListener('submit' , e => { /* 為什麼需要使用 e 還是搞不懂 */
         let checker = 0
         /* 取得文字題答案 */
         let ipt = document.querySelectorAll('.important') // array
@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', function () { /* Content Loaded �
         /* stop default action */
         if (checker!==questions) e.preventDefault()
         
-        /* 輸出結果 */
+        /* 繳交成功輸出結果 */
         let unipt = document.querySelector('.unimportant')
-        if (checker===questions && classType[0].checked!==classType[1].checked) {
+        if (checker===questions) {
             /* '' 用ES6語法改寫  `` */
             console.log('電子郵件：' + ipt[0].value)
             console.log('暱稱：' + ipt[1].value)

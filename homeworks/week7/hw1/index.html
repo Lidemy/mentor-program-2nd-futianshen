@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>Grid System</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+        .block {
+            background-color: red;
+            height: 100px;
+        }
+        .block:nth-child(2n) {
+            background-color: blue;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-1 block"></div>
+            <div class="col-11 block"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 block"></div>
+            <div class="col-10 block"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 block"></div>
+            <div class="col-9 block"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 block"></div>
+            <div class="col-8 block"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-5 block"></div>
+            <div class="col-7 block"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 block"></div>
+            <div class="col-6 block"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 block"></div>
+            <div class="col-4 block"></div>
+            <div class="col-4 block"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 block"></div>
+            <div class="col-7 block"></div>
+            <div class="col-3 block"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="col-1 block"></div>
+    </div>
+    <div class="container">
+        <div class="col-2 block"></div>
+    </div>
+    <div class="container">
+        <div class="col-3 block"></div>
+    </div>
+    <div class="container">
+        <div class="col-4 block"></div>
+    </div>
+</body>
+</html>
+<!-- bootsrap 的網格是怎麼寫的？ -->

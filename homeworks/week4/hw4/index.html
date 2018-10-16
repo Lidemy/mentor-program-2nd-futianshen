@@ -19,7 +19,8 @@
 </body>
 <script>
         function q(slct) { // function 可以看成是一個傳參數進去的物件?
-            return {
+            return { // 這個是閉包？ closure？什麼是閉包？ 和 jQuery 的內建函式方法有關。我能不能自己也寫一個函式庫？如果自己要寫一個函式庫要怎麼做？先看看 jQuery 怎麼做
+            
                 hide: function() { 
                     document.querySelector(slct).style.display = 'none'
                 },
@@ -27,8 +28,6 @@
                     document.querySelector(slct).style.display = 'block'
                 }
             }
-            
-
         }
         let element = q('.block')
         alert('hide')
