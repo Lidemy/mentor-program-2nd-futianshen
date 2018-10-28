@@ -31,7 +31,7 @@ if (isset($_POST['post_id']) && isset($_POST['comment_content'])) {
     $comment_nickname=$read_comment_row['nickname'];
     $comment_time=$read_comment_row['created_at'];
     $comment_id = $read_comment_row['id'];
-    $conn->close(); //這個的作用是什麼？ 沒 close 會怎麼樣？
+    $conn->close(); 
 
     /* send response to front-end */
     $arr = array( 

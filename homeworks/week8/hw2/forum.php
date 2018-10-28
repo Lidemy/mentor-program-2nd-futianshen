@@ -51,7 +51,7 @@ $nickname = $read_user_row['nickname'];
             
 <?php
 /*  分頁功能準備 */ 
-$read_post_quantity = $conn->prepare("SELECT is_deleted FROM tian_posts WHERE is_deleted=1 ");
+$read_post_quantity = $conn->prepare("SELECT is_deleted FROM tian_posts WHERE is_deleted=0 ");
 $read_post_quantity->execute() or die("Error2"); 
 $read_post_quantity_result = $read_post_quantity->get_result();
 
@@ -63,10 +63,10 @@ if (!isset($_GET['page'])) $page =1;
 else $page = intval($_GET["page"]); 
 $skip = ($page-1)*$per_page; 
 
-/* read post 分頁功能 *//* 如果沒有插入使用者輸入的變數是否還有 SQL injection 的風險？ 防止已經儲存在資料庫的程式碼？ */
+/* read post 分頁功能 */
 $read_post =$conn->prepare("SELECT tian_posts.id, tian_posts.created_at, tian_posts.user_id, tian_posts.content, tian_users.nickname FROM tian_posts 
 LEFT JOIN tian_users ON tian_posts.user_id = tian_users.id 
-WHERE tian_posts.is_deleted=1 ORDER BY created_at DESC 
+WHERE tian_posts.is_deleted=0 ORDER BY created_at DESC 
 LIMIT ?, ? ");
 $read_post->bind_param("ii", $skip, $per_page);
 $read_post->execute();
@@ -119,7 +119,7 @@ if ($read_post_result->num_rows >0) {
 /* read comment */
 $read_comment = $conn->prepare("SELECT tian_comments.id, tian_comments.created_at, tian_users.nickname, tian_comments.post_id, tian_comments.user_id, tian_comments.content FROM tian_comments 
 LEFT JOIN tian_users ON tian_comments.user_id = tian_users.id 
-WHERE post_id=? AND tian_comments.is_deleted=1 
+WHERE post_id=? AND tian_comments.is_deleted=0
 ORDER BY created_at DESC");
 $read_comment->bind_param('i', $post_id); 
 $read_comment->execute() or die("Error4");

@@ -13,7 +13,7 @@ $hash = $read_row['password'];
 $id = $read_row['id'];
 if (password_verify($password, $hash)) {
     echo $_SESSION['id'] = uniqid(); 
-    $create = $conn->prepare("INSERT INTO tian_certificates VALUES (?, ?, 1)");
+    $create = $conn->prepare("INSERT INTO tian_certificates VALUES (?, ?)");
     $create->bind_param("si", $_SESSION['id'], $id);
     $create->execute() or die ('error');
     header('Location: ../forum.php');

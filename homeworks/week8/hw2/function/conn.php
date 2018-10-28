@@ -1,3 +1,4 @@
+
 <?php
 /* 建立登入檔案 */
 $db_hostname = "localhost"; 
