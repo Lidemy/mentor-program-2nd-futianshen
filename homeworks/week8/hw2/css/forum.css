@@ -1,0 +1,60 @@
+nav {
+  position: fixed;
+  top: 0;
+}
+ul {
+  list-style-type: none;
+}
+.nav-link {
+  text-align: right;
+}
+form {
+  text-align: right;
+}
+form label {
+  width: 100%;
+}
+form label textarea {
+  width: 100%;
+}
+.forum {
+  padding-top: 20px;
+}
+.post__create {
+  padding: 1.5rem;
+}
+.post__read {
+  margin-top: 1rem;
+  display: flex;
+}
+.post__read--header {
+  display: flex;
+  justify-content: space-between;
+}
+.post__modify {
+  display: flex;
+}
+.comment__read--header {
+  display: flex;
+  justify-content: space-between;
+}
+.comment__modify {
+  display: flex;
+}
+.page {
+  padding-top: 15px;
+}
+.page ul {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+#footer {
+  margin-top: 15px;
+  padding: 20px;
+  background-color: #444;
+}
+#footer__copy {
+  text-align: center;
+}
