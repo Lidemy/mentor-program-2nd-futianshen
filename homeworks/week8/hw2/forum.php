@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>week8 Record 記錄</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/forum.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -32,14 +32,14 @@
 <?php
 /* 連接資料庫 */
 require_once('function/conn.php');
-/* 取得 Session id */
-require_once('function/certificate.php');
-$user_id = $read_user_row['id'];
-$nickname = $read_user_row['nickname'];
+/* 取得 user.id, nick */
+session_start();
+$user_id = $_SESSION['user_id'];
+$user_nick = $_SESSION['user_nick'];
 ?>
         <div class="post__create jumbotron">
             <div>
-                <h1>嗨！<?echo htmlspecialchars($nickname ,ENT_QUOTES, 'utf-8')?> 有什麼話想說嗎？</h1> 
+                <h1>嗨！<?echo htmlspecialchars($user_nick, ENT_QUOTES, 'utf-8')?> 有什麼話想說嗎？</h1> 
             </div>
             <hr class="my-4">
             <!-- create post -->
@@ -63,7 +63,7 @@ if (!isset($_GET['page'])) $page =1;
 else $page = intval($_GET["page"]); 
 $skip = ($page-1)*$per_page; 
 
-/* read post 分頁功能 */
+/* read post 分頁功能 *//* 如果沒有插入使用者輸入的變數是否還有 SQL injection 的風險？ 防止已經儲存在資料庫的程式碼？ */
 $read_post =$conn->prepare("SELECT tian_posts.id, tian_posts.created_at, tian_posts.user_id, tian_posts.content, tian_users.nickname FROM tian_posts 
 LEFT JOIN tian_users ON tian_posts.user_id = tian_users.id 
 WHERE tian_posts.is_deleted=0 ORDER BY created_at DESC 
@@ -119,7 +119,7 @@ if ($read_post_result->num_rows >0) {
 /* read comment */
 $read_comment = $conn->prepare("SELECT tian_comments.id, tian_comments.created_at, tian_users.nickname, tian_comments.post_id, tian_comments.user_id, tian_comments.content FROM tian_comments 
 LEFT JOIN tian_users ON tian_comments.user_id = tian_users.id 
-WHERE post_id=? AND tian_comments.is_deleted=0
+WHERE post_id=? AND tian_comments.is_deleted=0 
 ORDER BY created_at DESC");
 $read_comment->bind_param('i', $post_id); 
 $read_comment->execute() or die("Error4");
@@ -176,14 +176,12 @@ if ($read_comment_result->num_rows >0) {
     }
 } 
 ?> 
-    <main>
-
-    <div class="float">
+    </main>
+    <div class="page">
         <ul class="btn-toolbar btn-group">
             <li>
                 <a class="btn btn-secondary" href="forum.php?page=1">&laquo;</a>
             </li>
-
 <?php /* 換頁功能 */ 
 for( $i=1 ; $i<$page_quantity ; $i++ ) {
     if ( $page-1 <= $i && $i <= $page+1 ) {

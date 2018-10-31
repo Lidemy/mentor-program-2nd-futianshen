@@ -1,15 +1,15 @@
 <?php
 /* connect to database */
 require_once('conn.php');
-require_once('certificate.php');
-$user_id = $read_user_row['id'];
+session_start();
+$user_id = $_SESSION['user_id'];
 
 /* create comment */
 if (isset($_POST['post_id']) && isset($_POST['comment_content'])) {
     $post_id = $_POST['post_id'];
     $comment_content = $_POST['comment_content'];
 
-    $create_comment = $conn->prepare("INSERT INTO tian_comments VALUES(NULL, CURRENT_TIMESTAMP, ?, ?, ? , 1)");
+    $create_comment = $conn->prepare("INSERT INTO tian_comments VALUES(NULL, CURRENT_TIMESTAMP, ?, ?, ? , 0)");
     $create_comment->bind_param("iis", $user_id, $post_id, $comment_content);
     $create_comment->execute() or die(header('Location: signup.php')); 
 

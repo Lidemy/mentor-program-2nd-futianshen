@@ -1,9 +1,13 @@
+/* 需要改的地方 想辦法將選擇器改短一點 */
+/* e.tartet....... 有辦法可以改短嗎？ */
+/* 如果重新設計一次資料庫結構我會怎麼做？is_deleted 預設值 */
+
 $(document).ready(function(e){
     /* 處理文章 */
         /* 文章修改 */
         $('.post__modify > [action="function/modify_post.php"]').click(function(e) {
             e.preventDefault();
-            const postContent =$(e.target.parentNode.parentNode.parentNode.parentNode).find('.post__read--content')[0].innerText
+            const postContent =$('.post__read').find('.post__read--content')[0].innerText
             const postId = $(e.target.parentNode).find("input[name=post_id]").val()
     
             /* 新增一個表單輸入框 */
@@ -11,6 +15,7 @@ $(document).ready(function(e){
             div.setAttribute("class", "modify")
     
             form = document.createElement('form')
+            form.setAttribute('class', 'post-modify')
             form.setAttribute("action", "function/modify_post.php")
             form.setAttribute("method", "POST")
     
@@ -34,12 +39,25 @@ $(document).ready(function(e){
 
             div.appendChild(form)
 
-            $(e.target.parentNode.parentNode.parentNode.parentNode).find('.post__read--content')[0].replaceWith(div) /* 這個代替的動作和我想的不太一樣 */    
+            $(e.target.parentNode.parentNode.parentNode.parentNode).find('.post__read--content')[0].replaceWith(div) 
         })
-        $(document).on("submit",'.modify > [action="function/modify_post.php"]', function(e) {
+        $(document).on("submit",'.post-modify', function(e) {
             e.preventDefault();
             const postId = $(e.target.parentNode).find("input[name=post_id]").val()
             const modifyContent = $(e.target.parentNode).find("textarea[name=modify_content]").val()
+            $(this).parent().parent().find('.modify').replaceWith(`<p class="post__read--content card-text">${modifyContent}</p>`)
+            $.ajax({
+                type: "POST",
+                url: 'function/modify_post.php',
+                data: {
+                    post_id: postId,
+                    modify_content: modifyContent
+                },
+                success: function(res){ 
+                    let resp = JSON.parse(res)
+                    console.log(resp.result)
+                }
+            }) 
             
         })
         /* 文章刪除 */
@@ -64,6 +82,8 @@ $(document).ready(function(e){
             e.preventDefault();
             const commentContent = $(e.target).find("textarea[name=comment_content]").val()
             const postId = $(e.target).find("input[name=post_id]").val()
+            console.log(commentContent)
+            console.log(postId)
             $.ajax({
                 type: "POST",
                 url: 'function/comment.php',
@@ -187,14 +207,10 @@ $(document).ready(function(e){
                     modify_content: modifyContent
                 }, 
                 success: function(resp){
-                    console.log(resp)
                     let response = JSON.parse(resp)
-                    console.log(response)
                     if(response.result==='success') {
                         console.log(e.currentTarget.parentNode.parentNode)
-                        $(e.currentTarget.parentNode).replaceWith(`
-                            <p class="comment__read--content">${modifyContent}</p>
-                        `) 
+                        $(e.currentTarget.parentNode).replaceWith(`<p class="comment__read--content card-text">${modifyContent}</p>`)
                     }
                 }
             })
