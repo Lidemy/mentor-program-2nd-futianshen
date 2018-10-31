@@ -1,15 +1,15 @@
 <?php
 /* connect to database */
 require_once('conn.php');
-require_once('certificate.php');
-$user_id = $read_user_row['id'];
+session_start();
+$user_id = $_SESSION['user_id'];
 
 /* create comment */
 if (isset($_POST['post_id']) && isset($_POST['comment_content'])) {
     $post_id = $_POST['post_id'];
     $comment_content = $_POST['comment_content'];
 
-    $create_comment = $conn->prepare("INSERT INTO tian_comments VALUES(NULL, CURRENT_TIMESTAMP, ?, ?, ? , 1)");
+    $create_comment = $conn->prepare("INSERT INTO tian_comments VALUES(NULL, CURRENT_TIMESTAMP, ?, ?, ? , 0)");
     $create_comment->bind_param("iis", $user_id, $post_id, $comment_content);
     $create_comment->execute() or die(header('Location: signup.php')); 
 
@@ -31,7 +31,7 @@ if (isset($_POST['post_id']) && isset($_POST['comment_content'])) {
     $comment_nickname=$read_comment_row['nickname'];
     $comment_time=$read_comment_row['created_at'];
     $comment_id = $read_comment_row['id'];
-    $conn->close(); //這個的作用是什麼？ 沒 close 會怎麼樣？
+    $conn->close(); 
 
     /* send response to front-end */
     $arr = array( 

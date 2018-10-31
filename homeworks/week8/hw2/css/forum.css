@@ -17,6 +17,9 @@ form label {
 form label textarea {
   width: 100%;
 }
+.forum {
+  padding-top: 20px;
+}
 .post__create {
   padding: 1.5rem;
 }
@@ -37,4 +40,21 @@ form label textarea {
 }
 .comment__modify {
   display: flex;
+}
+.page {
+  padding-top: 15px;
+}
+.page ul {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+#footer {
+  margin-top: 15px;
+  padding: 20px;
+  background-color: #444;
+}
+#footer__copy {
+  text-align: center;
 }
