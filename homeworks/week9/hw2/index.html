@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function Stack() {
+        let arr = []
+        return {
+          push: function(num) {
+            let i = arr.length
+            arr[i]= num
+          }, 
+          pop: function() {
+            // 將 pop 的數字取出
+            let popResult = arr[arr.length-1]
+            // 將陣列 arr 去除 pop 的數字
+            let afterPop = []
+            for (i=0;i<arr.length-1;i++) {
+              afterPop[i]=arr[i]
+            }
+            arr = afterPop
+            return popResult
+          }
+        }
+      }
+      function Queue() {
+        let arr=[]
+        return {
+          push: function(num) {
+            let i = arr.length 
+            arr[i] = num
+          },
+          pop: function() {
+            /* 取出第一個 */
+            let popResult = arr[0]
+            /* 將原來陣列的第一項去除 */
+            let afterPop = []
+            for (i=1;i<arr.length;i++) { 
+              afterPop[i-1]=arr[i] 
+            }
+            arr = afterPop
+            return popResult 
+          }
+        }
+      }
+      alert('Stack')
+      let stack = new Stack()
+      stack.push(10);alert('push 10')
+      stack.push(5);alert('push 5')
+      alert(stack.pop())
+      alert(stack.pop())
+      console.log(stack.pop()) // 5
+      console.log(stack.pop()) // 10
+
+      alert('Queue')
+      let queue = new Queue() 
+      queue.push(1);alert('push 1')
+      queue.push(2);alert('push 2')
+      alert(queue.pop())
+      alert(queue.pop())
+      console.log(queue.pop()) // 1
+      console.log(queue.pop()) // 2
+    })
+  </script>
+  <title>Stack & Queue</title>
+</head>

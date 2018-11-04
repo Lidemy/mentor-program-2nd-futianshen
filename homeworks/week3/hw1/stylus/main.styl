@@ -1,0 +1,98 @@
+/* background */
+nav-bg = #333
+header-bg = #E9FAFF
+
+/* btn general */
+btn-bdrs = 5px
+btn-fz = 20px
+btn-color = #eee
+btn-trsdu = .5s
+
+/* btn type */
+blue-btn = #1F7EF2
+blue-btn-hover = #0060D5
+grey-btn = #939393
+grey-btn-hover = #7A7A7A
+
+/* gerneral element */
+body
+  font-family sans-serif
+  margin 0
+
+h1
+h2
+  font-weight normal
+
+ul
+  display flex
+  padding-left 15px
+
+li
+  list-style-type none
+  padding-right: 15px
+
+a 
+  text-decoration none
+  display inline-block
+
+/* custom */
+#logo
+  padding-left 10px
+  line-height 50px
+  font-size 20px
+  color white
+
+.wrapper
+  padding 20px
+
+.nav
+  display flex
+  background-color nav-bg
+  text-transform capitalize
+  a
+    color: grey
+    &:hover
+      color white
+
+.header
+  background-color header-bg
+  &__title
+    margin 0
+    font-size 72px
+
+  &__content
+    margin-bottom 30px
+  
+  &__button--blue
+    border-radius btn-bdrs
+    padding 15px 30px
+    background-color blue-btn
+    font-size btn-fz
+    color btn-color
+
+    &:hover
+      background-color blue-btn-hover
+      transition-duration btn-trsdu
+
+main
+  display flex
+  .article
+    &__title
+      font-size 36px
+      text-transform capitalize
+    
+    &__button--grey
+      border-radius btn-bdrs
+      padding 10px 15px
+      background-color grey-btn 
+      font-size btn-fz
+      color btn-color
+
+      &:hover
+        background-color grey-btn-hover
+        transition-duration btn-trsdu
+
+@media (max-width:750px)
+  main
+    display flex
+    flex-direction column

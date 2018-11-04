@@ -1,86 +1,82 @@
-form {
-  margin: 0;
-  padding: 0;
+.container {
+  display: flex;
 }
 input {
-  margin-bottom: 9px;
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  text-align: center;
-  line-height: 63px;
-  font-size: 24px;
-  background-color: #ffa500;
+  outline-style: none;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 0px;
+  width: 55px;
+  height: 55px;
+  font-size: 22px;
+}
+input:hover {
+  transition-duration: 0.3s;
 }
 .calculator {
-  width: 300px;
-  height: 500px;
-  background-color: #000;
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
+  justify-content: space-around;
+  width: 250px;
+  height: 375px;
+  margin: auto;
+  padding: 10px;
+  background-color: #000;
 }
 .calculator__monitor {
-  margin: 0 auto;
-  padding: 50px 0 15px;
-  width: 240px;
+  padding: 10px;
+  height: 30px;
+  color: #fff;
   text-align: right;
   font-size: 40px;
-  color: #fff;
 }
 .calculator__keyboard {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
+  width: 250px;
 }
 .calculator__keyboard--left {
-  display: flex;
-  flex-direction: column;
-  width: 207px;
+  margin-right: 5px;
 }
 .calculator__keyboard--multiple {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-bottom: 5px;
 }
 .calculator__keyboard--multiple input {
-  border: 0;
   background-color: #808080;
-  transition: 0.3s;
 }
 .calculator__keyboard--multiple input:hover {
   background-color: #aaa;
 }
 .calculator__keyboard--number {
   display: flex;
-  flex-flow: row wrap-reverse;
-  justify-content: space-between;
-  align-content: space-between;
+  flex-flow: wrap-reverse;
+  justify-content: space-around;
 }
 .calculator__keyboard--number input {
-  border: 0;
   background-color: #333;
   color: #fff;
-  transition: 0.3s;
+  margin-bottom: 5px;
 }
 .calculator__keyboard--number input:hover {
   background-color: #555;
 }
-.calculator__keyboard--number input.big {
-  box-sizing: border-box;
-  width: 138px;
-  padding-left: 25px;
-  text-align: left;
+.calculator__keyboard--number .big {
+  width: 120px;
+  border-radius: 30px;
+  padding-left: 22px;
+  text-align-last: left;
 }
 .calculator__keyboard--operator {
   display: flex;
   flex-flow: column-reverse;
-  padding-left: 9px;
 }
 .calculator__keyboard--operator input {
-  border: 0;
   background-color: #ffa500;
+  margin-bottom: 5px;
+  padding-top: 1px;
+  font-size: 30px;
   color: #fff;
-  transition: 0.3s;
 }
 .calculator__keyboard--operator input:hover {
   background-color: #ffaf00;

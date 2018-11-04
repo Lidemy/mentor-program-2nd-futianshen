@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+}
+
+main {
+  padding: 0 30px;
+}
+
+.sidebar {
+  position: absolute;
+  margin: 0;
+  width: 22px;
+  height: 27px;
+  top: 150px;
+  left: 40px;
+}
+.sidebar > hr {
+  margin: 2px;
+  border: 0px;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+.content__title {
+  font-size: 45px;
+  font-weight: normal;
+}
+.content p {
+  font-size: 21px;
+}
+
+@media (min-width:400px) and (max-width:760px) {
+  .content__title {
+      font-size: 30px;
+  }
+  .content p {
+      font-size: 16px;
+  }
+}
+@media (max-width:900px) {
+  .sidebar {
+      display: none;
+  }
+}

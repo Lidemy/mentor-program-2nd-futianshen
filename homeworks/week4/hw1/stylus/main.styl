@@ -1,0 +1,78 @@
+.container
+  display flex
+
+input 
+  outline-style: none
+  box-sizing border-box
+  border-radius 50%
+  border 0px
+  width 55px
+  height @width
+  font-size 22px
+  &:hover
+    transition-duration .3s
+
+.calculator
+  display flex
+  flex-flow column
+  justify-content space-around
+  width 250px
+  height 375px
+  margin auto
+  padding 10px
+  background-color black
+
+  &__monitor
+    padding 10px
+    height 30px
+    color white
+    text-align right
+    font-size 40px
+
+  &__keyboard
+    display flex
+    width 250px
+
+    &--left
+      margin-right 5px
+
+    &--multiple
+      display flex
+      justify-content: space-around
+      margin-bottom 5px
+      input
+        background-color grey
+        &:hover
+          background-color #aaa
+
+    &--number
+      display flex
+      flex-flow wrap-reverse
+      justify-content: space-around
+      input
+        background-color #333
+        color white
+        margin-bottom 5px
+        &:hover
+          background-color #555
+
+      .big
+        width 60*2px
+        border-radius 30px
+        padding-left 22px
+        text-align-last left
+
+    &--operator
+      display flex
+      flex-flow column-reverse
+      input
+        background-color orange
+        margin-bottom 5px
+        padding-top: 1px
+        font-size 30px
+        color white
+        &:hover
+          background-color #ffaf00
+
+    
+
