@@ -1,3 +1,5 @@
 node_modules/
 /homeworks/week8/hw2/funciton/conn.php
 /homeworks/week8/hw3/conn.php
+conn.php
+.DS_Store
