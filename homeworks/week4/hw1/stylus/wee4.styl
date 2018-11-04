@@ -1,0 +1,76 @@
+form
+    margin 0
+    padding 0
+
+input
+    margin-bottom 9px
+    width 60px
+    height 60px
+    border-radius 30px
+    text-align center
+    line-height 63px
+    font-size 24px
+    background-color orange
+
+.calculator
+    width 300px
+    height 500px
+    background-color black
+    display flex
+    flex-direction: column
+    &__monitor
+        margin 0 auto
+        padding 50px 0 15px
+        width 240px
+        text-align right
+        font-size 40px 
+        color white
+
+    &__keyboard
+        display flex
+        flex-direction row
+        margin 0 auto
+        &--left
+            display flex
+            flex-direction: column
+            width: 207px
+        &--multiple
+            display flex
+            flex-direction row
+            justify-content space-between
+            input
+                border 0
+                background-color: grey
+                transition 0.3s
+                &:hover
+                    background-color #aaa
+        &--number
+            display flex
+            flex-flow row wrap-reverse
+            justify-content space-between
+            align-content: space-between 
+            input
+                border 0
+                background-color #333
+                color white
+                transition 0.3s
+                &:hover
+                    background-color #555
+                &.big
+                    box-sizing: border-box
+                    width 138px
+                    padding-left 25px
+                    text-align left
+
+        &--operator
+            display flex
+            flex-flow column-reverse
+            padding-left 9px
+            input
+                border 0
+                background-color: orange 
+                color white
+                transition 0.3s
+                &:hover
+                    background-color #ffaf00
+        

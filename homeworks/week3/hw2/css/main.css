@@ -1,0 +1,52 @@
+body {
+  font-family: serif;
+}
+h1 {
+  font-weight: normal;
+}
+ul {
+  padding: 0px;
+}
+aside {
+  position: fixed;
+  top: 100px;
+  left: 25px;
+  opacity: 0.1;
+}
+aside:hover {
+  transition-duration: 0.5s;
+  opacity: 1;
+}
+aside span {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+aside li {
+  box-sizing: border-box;
+  list-style-type: none;
+  text-align: center;
+}
+aside li.applaud {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 30px;
+  border: 1px solid #000;
+}
+aside li.applaud:hover {
+  transition-duration: 0.2s;
+  border: 1px solid #03a87c;
+}
+.wrapper {
+  padding: 20px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 768px;
+}
+@media (max-width: 960px) {
+  aside {
+    display: none;
+  }
+}

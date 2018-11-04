@@ -1,0 +1,51 @@
+body
+  font-family serif
+
+h1
+  font-weight normal
+
+ul
+  padding 0px
+
+aside 
+  position fixed
+  top 100px
+  left 25px
+  opacity 0.1
+
+  &:hover
+    transition-duration: 0.5s
+    opacity 1
+
+  span
+    margin 0 auto
+    text-align center
+    display block
+
+  li
+    box-sizing border-box
+    list-style-type none
+    text-align center
+
+    &.applaud
+      width 60px
+      height @width
+      line-height @height
+      border-radius 30px
+      border 1px solid black
+      &:hover
+        transition-duration: 0.2s
+        border 1px solid #03a87c
+
+.wrapper
+  padding 20px
+
+.container
+  margin 0 auto
+  max-width 768px
+  
+@media (max-width: 960px)
+  aside
+    display none
+  
+

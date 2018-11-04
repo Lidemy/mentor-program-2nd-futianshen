@@ -1,0 +1,117 @@
+    <style>
+        h1,h2,body {
+            margin: 0;
+        }
+        .intro,.content,.footer {
+            padding: 0 20px;
+        }
+        /* header */
+        .header {
+            position: fixed;
+            display: flex;
+            background-color: black;
+            width: 100%;
+        }
+        #header__logo {
+            text-transform: capitalize;
+            padding-left: 10px;
+            line-height: 50px;
+            font-size: 20px;
+            color: white;
+        }
+        .header__list {
+            display: flex;
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .header__button {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: grey;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .header__button:hover {
+            color:ghostwhite;
+        }
+        /* intro */
+        .intro {
+            background-color:gainsboro;
+        }
+        .intro__title {
+            font-weight: normal;
+            font-size: 72px;
+        }
+        .intro__button--blue {
+            display: inline-block;
+            background-color:dodgerblue;
+            border-radius: 5px;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: ghostwhite;
+            transition: 0.3s;
+        }
+        .intro__button--blue:hover {
+            background-color:deepskyblue;
+        }
+        /* content */
+        .content__title {
+            text-transform: capitalize;
+            font-weight: normal;
+            font-size: 32px;
+        }
+        .content__article {
+            padding-bottom: 30px
+        }
+        .content__button--grey {
+            background-color:dimgrey;
+            border-radius: 5px;
+            padding: 12px 10px;
+            text-decoration: none;
+            color: ghostwhite;
+            transition: 0.3s;
+        }
+        .content__button--grey:hover {
+            background-color:gray ;
+        }
+        /* footer */
+        
+        @media (min-width: 400px) and (max-width: 780px) {
+            .intro__container {
+                margin: 0 auto;
+                padding: 90px 0 40px;
+                width: 95%;
+            }
+            .content__container {
+                margin: 0 auto;
+                padding: 40px 0;
+                width: 95%;
+            }
+            .footer__container {
+                border-top: 1px solid rgba(0,0,0,0.1);
+                margin: 0 auto;
+                padding: 20px 0;
+                width: 95%;
+            }
+        }
+      
+        @media (min-width: 781px) and (max-width: 1920px) {
+            .intro__container {
+                margin: 0px auto;
+                padding: 90px 0 40px;
+                max-width: 960px; 
+            }
+            .content__container {
+                display: flex;
+                margin: 0 auto;
+                padding: 40px 0;
+                max-width: 960px;
+            }
+            .footer__container {
+                border-top: 1px solid rgba(0,0,0,0.1);
+                margin: 0 auto;
+                padding: 20px 0;
+                max-width: 960px;
+            }
+        }
