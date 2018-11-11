@@ -17,7 +17,7 @@ if (password_verify($password, $hash)) {
     $create->bind_param("si", $session_id, $id);
     $create->execute() or die ('error');
     setcookie("session_id", $session_id, time()+3600*24); 
-    header('Location: forum.php');
+    //header('Location: forum.php');
 } else {
     header('Location: index.html');
 }
