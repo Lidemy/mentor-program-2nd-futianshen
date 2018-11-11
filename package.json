@@ -1,7 +1,7 @@
 {
   "name": "mentor-program-2nd",
   "version": "1.0.0",
-  "description": "",
+  "description": "## 這是什麼",
   "main": "index.js",
   "scripts": {
     "test": "jest --env=node"
@@ -13,6 +13,18 @@
     "babel-jest": "^22.0.6",
     "babel-preset-es2015": "^6.24.1",
     "jest": "^22.0.6",
-    "regenerator-runtime": "^0.11.1"
+    "regenerator-runtime": "^0.11.1",
+    "webpack": "^4.25.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lidemy/mentor-program-2nd-futianshen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lidemy/mentor-program-2nd-futianshen/issues"
+  },
+  "homepage": "https://github.com/Lidemy/mentor-program-2nd-futianshen#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
   }
 }

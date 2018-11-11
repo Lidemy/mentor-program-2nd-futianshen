@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FutianShen Week4 hw2</title>
+    <link rel="stylesheet" href="build/normalize.css">
+    <link rel="stylesheet" href="build/main.css">
+    <script src="build/main.js"></script>
+    <style>
+        .alert {
+            background-color: #ffebee;
+            color: rgb(216, 66, 56);
+        }
+        .alertChecked {
+            background-color: #ffebee;
+            color: rgb(216, 66, 56);
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <div class="sheet container">
+        <div class="sheet__info">
+            <h1>程式導師實驗計畫第二期報名表單</h1>
+            <p>詳情請參考：<a href="https://medium.com/@hulitw/mentor-program-b5f96ae1eed1 ">https://medium.com/@hulitw/mentor-program-b5f96ae1eed1 </a></p>
+            <p>記得填完表單之後還要寫信報名才算成功，兩者缺一不可！</p>
+            <p class="notice">必填</p>
+        </div>
+        <form class="sheet__main">
+            <!-- 第一題 -->
+            <div class="block">
+                <h2 class='notice'>電子郵件地址</h2> 
+                <input  class='important' type="email" placeholder="您的電子郵件" >
+                <div class="alert"></div>
+            </div>
+            <!-- 第二題 -->
+            <div class="block">
+                <h2 class='notice'>暱稱</h2>
+                <p>該怎麼稱呼你</p>
+                <input class='important' type="text" placeholder="您的回答" >
+                <div class="alert"></div>
+            </div>
+            <!-- 第三題 -->
+            <div class="block">
+                <h2 class='notice'>報名類型</h2>
+                <!-- label 有兩種用法 --> <!-- 為什麽用 label 包起來之後 就會出現問題 推測跟 DOM 指令有關。 -->
+                <input id="junior" type="radio" name="classType" class="iptChecked" ><label for=junior>從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</label>
+                <input id="senior" type="radio" name="classType" class="iptChecked" ><label for=senior>在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還）</label>
+                <div class="alert"></div>
+            </div>
+            <!-- 第四題 -->
+            <div class="block">
+                <h2 class='notice'>現在的職業</h2>
+                <p>範例：學生、前端工程師、待業中、業務</p>
+                <input class='important' type="text" placeholder="您的回答" >
+                <div class="alert"></div>
+            </div>
+            <!-- 第五題 -->
+            <div class="block">
+                <h2 class='notice'>是否有程式相關背景？</h2>
+                <p>範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...</p>
+                <textarea class='important' name="comments" placeholder="您的回答" style="width:500px;" ></textarea>
+                <div class="alert"></div>
+            </div>
+            <!-- 第六題 -->
+            <div class="block">
+                <h2>其他</h2>
+                <p>任何你想說的</p>
+                <input class='unimportant' type="text" placeholder="您的回答" style="width:500px;">
+            </div>
+            <!-- 提交 -->
+            <div class="block">
+                <input type="submit" name="goodbye" value="提交">
+                <p class='under_button'>請勿利用 Google 表單送出密碼。</p>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="footer__copyright">
+            <p class="footer__content">Google 並未認可或建立這項內容。</p>
+            <a href="#">檢舉濫用情形</a> - 
+            <a href="#">服務條款</a> -
+            <a href="#">其他條款</a>
+        </div>
+        <div id="logo">Google 表單</div>
+    </footer>
+</body>
+</html>
