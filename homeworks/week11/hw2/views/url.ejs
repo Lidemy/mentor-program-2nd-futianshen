@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Short-Url</title>
+</head>
+<body>
+  <% if (shortUrl) { %>
+      <h2>您的短網址：<a href="<%= shortUrl %>" target="_blank"><%= shortUrl %></a></h2>
+  <% } %>
+  <form action="/shortUrl" method="POST">  
+    <label><input type="text" name="originalUrl"  placeholder="請輸入長網址"></label>
+    <input type="submit"><!-- input type submit 和 button type submit 有什麼差別 ？ -->
+  </form>
+</body>
+</html>

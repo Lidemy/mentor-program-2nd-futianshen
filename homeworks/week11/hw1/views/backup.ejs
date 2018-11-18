@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css"> 
+        <link rel="stylesheet" href="css/forum.css">
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <title>記錄 Record</title>
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Record 記錄</a>
+        <% if (username) { %>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="btn btn-secondary" href="/logout">登出</a>
+                </li>
+            </ul>
+            </div>
+        <% } else { %>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="btn btn-secondary" href="/">登入</a>
+                    </li>
+                </ul>
+            </div>
+        <% } %>
+    </nav>
+
+    <main class="forum container">
+        <div class="post__create jumbotron">
+            <div>
+                <h1>嗨！<%= username %> 有什麼話想說嗎？</h1> 
+            </div>
+            <hr class="my-4">
+
+            <form action="/postCreate" method="POST">
+                <label><textarea name="post_content" required="required" placeholder="快記下你的奇思妙想、靈光乍現！"></textarea></label>
+                <input type="submit" value="分享" class="btn btn-primary btn-lg">
+            </form>
+
+        </div>  
+            
+<?php
+require_once('function/read_post.php');
+if ($read_post_result->num_rows >0) {
+    while ($read_post_row = $read_post_result->fetch_array()) {
+        $post_author = $read_post_row['nickname']; 
+        $post_time = $read_post_row['created_at'];
+        $post_username = $read_post_row['username'];
+        $post_id = $read_post_row['id']; 
+        $post_content = $read_post_row['content'];
+        $post_user_id = $read_post_row['user_id']
+?>
+
+        <div class="post__read card border-dark">
+            <div class="post__read--header card-header">
+                <div class="post__read--info">
+                    <div><?=htmlspecialchars($post_author ,ENT_QUOTES, 'utf-8')?></div>
+                    <div><?=$post_time?></div>
+                </div>
+                <div class="post__modify">
+
+    <?  if(isset($username) && $username===$post_username) { ?>
+
+                    <form action="function/del_post.php" method="POST">
+                        <input type="hidden" checked="checked" name="post_id" value="<?echo $post_id?>">
+                        <input type="submit" value="刪除" class='btn btn-danger'>
+                    </form>
+                    <form action="function/modify_post.php" method="POST"> 
+                        <input type="hidden" checked="checked" name="post_id" value="<?echo $post_id?>" >
+                        <input type="submit" value="修改" class='btn btn-warning'> 
+                    </form>    
+
+    <?  } ?>
+
+                </div>
+            </div>
+
+            <div class="post__read--main card-body">
+                <p class="post__read--content card-text"><?echo htmlspecialchars($post_content ,ENT_QUOTES, 'utf-8')?></p>
+                <!-- create comment -->
+                <form class="comment__create" action="function/comment.php" method="POST">
+                    <label><textarea name="comment_content" required="required" placeholder="讓我們的思緒互相連接"></textarea></label>
+                    <input type="hidden" name="post_id" value="<?echo $post_id?>">
+                    <input type="submit" value="連接" class="btn btn-success">
+                </form>               
+                    
+<?php
+        require('function/read_comment.php');
+        if ($read_comment_result->num_rows >0) {
+            while ($read_comment_row = $read_comment_result->fetch_assoc()) { 
+                $comment_id = $read_comment_row['id'];
+                $comment_nickname = $read_comment_row['nickname'];
+                $comment_time = $read_comment_row['created_at'];
+                $comment_username = $read_comment_row['username'];
+                $comment_content = $read_comment_row['content'];
+                $comment_user_id = $read_comment_row['user_id'];
+?>
+                <div class="comment__read <?if($post_user_id===$comment_user_id) echo' text-white bg-danger'; else echo 'border-primary'?> card mb-3">
+                    <div class="comment__read--header card-header">
+                        <div class="comment__read--info">
+                            <div><?echo htmlspecialchars($comment_nickname ,ENT_QUOTES, 'utf-8') ?></div>
+                            <div><?echo $comment_time ?></div>
+                        </div>
+                        <div class="comment__modify">
+
+                <?  if(isset($username) && $username===$comment_username) { ?>    
+            
+                            <form action="function/del_comment.php" method="POST"> 
+                                <input type="hidden" checked="checked" name="comment_id" value="<?echo $comment_id?>" >
+                                <input type="submit" value="刪除" class='btn btn-danger'> 
+                            </form>
+                            <form action="function/modify_comment.php" method="POST"> 
+                                <input type="hidden" checked="checked" name="comment_id" value="<?echo $comment_id?>" >
+                                <input type="submit" value="修改" class='btn btn-warning'>
+                            </form>
+
+                <?  } ?>
+
+                        </div>
+                    </div>
+                    <div class="comment__read--main card-body">
+                        <p class="comment__read--content card-text"><?echo htmlspecialchars($comment_content ,ENT_QUOTES, 'utf-8') ?></p>    
+                    </div>
+                </div>
+
+<?php      } 
+        }   ?>
+
+            </div>
+        </div>
+
+<?
+     }
+} ?> 
+
+    </main>
+
+<?  if($page_quantity>1) { ?>
+
+    <div class="page">
+        <ul class="btn-toolbar btn-group">
+            <li><a class="btn btn-secondary" href="forum.php?page=1">&laquo;</a></li>
+
+    <?  for ($i=1; $i<$page_quantity; $i++) if ($page-1<=$i && $i<=$page+1) echo "<li><a href=?page=$i class='btn btn-secondary'>$i</a></li> " ?>
+
+            <li><a class="btn btn-secondary" href="forum.php?page=<?=$page_quantity?>">&raquo;</a></li>
+        </ul>
+    </div>
+
+<?php } ?>
+
+<footer id="footer"><div id="footer__copy">Copyright &copy; 2018 Futian Shen</div></footer>
+</body>
+</html> 
