@@ -1,0 +1,39 @@
+.game {
+  display: flex;
+  justify-content: center;
+}
+.game__board {
+  display: flex;
+  flex-flow: row wrap;
+  border: 2px solid #000;
+  width: 570px;
+}
+.game__board button {
+  background-color: #6b4228;
+  border: 0.5px solid #000;
+  outline: unset;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
+.game__info {
+  margin-left: 30px;
+}
+.game__player {
+  width: 200px;
+}
+.chess--black {
+  margin: 0 auto;
+  border-radius: 9px;
+  width: 18px;
+  height: 18px;
+  background-color: #000;
+}
+.chess--white {
+  margin: 0 auto;
+  border-radius: 9px;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+}
