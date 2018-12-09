@@ -1,0 +1,54 @@
+.breadcrumbs
+  float right
+  display flex
+  padding 5px
+  font-size 14px
+  background rgba(0, 0, 0, 0.5)
+  text-transform capitalize
+  ul
+    padding 7px
+  li
+    box-sizing border-box
+    display inline-block
+    padding 5px
+    color white
+    &:after
+      content: "/"
+      margin-left 10px
+    &:last-child:after
+      content: ""
+      margin: 0
+    
+    a
+      color: #ccc
+      text-decoration: none
+      transition 0.5s
+      
+      &:hover
+        color white
+        
+.feature {
+	padding 100px 0
+	background-image url('https://picsum.photos/1920/1080/?random')
+	background-size cover
+	background-position 50% 50%
+	background-attachment fixed
+}
+
+.feature__title
+  display inline-block
+  color white
+  text-transform uppercase
+
+
+
+
+
+
+
+
+
+
+
+
+

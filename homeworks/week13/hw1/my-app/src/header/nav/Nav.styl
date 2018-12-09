@@ -1,0 +1,43 @@
+li 
+  padding  20px
+  top 50%
+  a
+    text-transform capitalize 
+.nav
+  display none
+  &--active
+    display block 
+    position fixed 
+    top 0 
+    left 0 
+    width 100% 
+    height 100% 
+    background-color rgba(0, 0, 0, 0.8) 
+  
+  &__list
+    &--active
+      display block
+      position relative
+      top 50%
+      text-align center
+      transform translateY(-50%)
+  
+  &__trigger
+    z-index 1
+    display block
+    line-height 60px
+    color white
+    cursor pointer
+    text-transform uppercase
+
+@media (min-width 768px)
+  .nav
+    display block
+    &__list
+      display block
+      li
+        display inline-block
+
+    &__trigger
+      display none
+  
