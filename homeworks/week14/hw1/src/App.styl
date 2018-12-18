@@ -1,0 +1,67 @@
+body
+  background #F2EFE9
+
+ul
+  list-style-type: none
+  margin 0
+  padding 0
+
+a
+  text-decoration none
+  color white
+
+label
+  display block
+  width 100%
+  margin-bottom 10px
+  input, textarea
+    outline-color rgba(70, 70, 85, 0.9)
+    outline-width 3px
+    border 1px solid #7e7e7e
+    margin-top 5px
+    width 100%
+
+button
+  border 2px solid #252627
+  padding 4px 12px
+  float right
+  background #F2EFE9
+  transition-duration .4s
+  font-weight normal
+  &:hover
+    color #F2EFE9
+    background #252627
+    opacity 0.8
+
+.container
+  max-width 320px
+  margin 0 auto
+
+.col-4
+  display inline-block
+  box-sizing border-box
+  margin-bottom 20px
+  width 100%
+
+.col-12
+  max-width 100%
+
+.wrapper
+  padding 20px
+
+@media (min-width 320px)
+  .container
+    max-width 90%
+
+@media (min-width 768px)
+  .container
+    max-width 85%
+
+  .col-4
+    margin 1%
+    width 30%
+
+@media (min-width 1024px)
+  .container
+    max-width 80%
+

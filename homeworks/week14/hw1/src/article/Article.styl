@@ -1,0 +1,30 @@
+.Article
+  padding 100px 0
+  a
+    border 2px solid #252627
+    padding 3px 15px
+    color #252627
+    font-size 16px
+    transition .3s
+    text-transform capitalize
+    font-weight normal
+    &:hover
+      color #F2EFE9
+      background-color #252627
+      opacity 0.8
+    
+  &__content
+    border-radius 6px
+    box-shadow -9px 10px 10px rgba(0, 0, 0, .3)
+    height 400px
+    overflow hidden
+    background: #909CC2
+    background:
+      linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, .5) 0) 100% 0 no-repeat,
+      linear-gradient(-135deg, transparent 1.5em,  #F7F5FB 0 ) 
+    background-size 2em 2em, auto
+
+@media (min-width  320px)
+  .Article
+    padding 50px 0
+
