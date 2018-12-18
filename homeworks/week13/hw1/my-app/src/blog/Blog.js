@@ -42,7 +42,7 @@ class Blog extends Component {
     const url = 'http://45.55.26.18:3310/posts'
     fetch(url) 
     .then(resp => resp.json()) 
-    .then(json => this.setState({this.setState 函式的邏輯
+    .then(json => this.setState({
       articles: json
     }))
   }
